@@ -1,0 +1,122 @@
+[
+  {
+    "title": "Beginner Classical Piano",
+    "description": "Learn the basics of classical piano, including reading sheet music and basic technique.",
+    "category": "Classical",
+    "level": "Beginner",
+    "price": 49.99,
+    "imageUrl": "https://example.com/images/classical-beginner.jpg"
+  },
+  {
+    "title": "Jazz Improvisation",
+    "description": "Explore the fundamentals of jazz piano improvisation and chord progressions.",
+    "category": "Jazz",
+    "level": "Intermediate",
+    "price": 59.99,
+    "imageUrl": "https://example.com/images/jazz-improv.jpg"
+  },
+  {
+    "title": "Pop Piano Hits",
+    "description": "Play your favorite pop songs on the piano with easy-to-follow lessons.",
+    "category": "Pop",
+    "level": "Beginner",
+    "price": 39.99,
+    "imageUrl": "https://example.com/images/pop-hits.jpg"
+  },
+  {
+    "title": "Advanced Rock Techniques",
+    "description": "Master advanced rock piano techniques and solos.",
+    "category": "Rock",
+    "level": "Advanced",
+    "price": 69.99,
+    "imageUrl": "https://example.com/images/rock-advanced.jpg"
+  },
+  {
+    "title": "Blues Piano Essentials",
+    "description": "Learn the essential blues scales, licks, and rhythms.",
+    "category": "Blues",
+    "level": "Intermediate",
+    "price": 54.99,
+    "imageUrl": "https://example.com/images/blues-essentials.jpg"
+  },
+  {
+    "title": "Country Piano for Beginners",
+    "description": "Start your journey into country piano with simple songs and techniques.",
+    "category": "Country",
+    "level": "Beginner",
+    "price": 44.99,
+    "imageUrl": "https://example.com/images/country-beginner.jpg"
+  },
+  {
+    "title": "Folk Song Arrangements",
+    "description": "Arrange and play classic folk songs on the piano.",
+    "category": "Folk",
+    "level": "Intermediate",
+    "price": 49.99,
+    "imageUrl": "https://example.com/images/folk-arrangements.jpg"
+  },
+  {
+    "title": "Electronic Music Production",
+    "description": "Create electronic music using piano and digital tools.",
+    "category": "Electronic",
+    "level": "Advanced",
+    "price": 79.99,
+    "imageUrl": "https://example.com/images/electronic-production.jpg"
+  },
+  {
+    "title": "Music Theory Basics",
+    "description": "Understand the basics of music theory for piano players.",
+    "category": "Theory",
+    "level": "Beginner",
+    "price": 29.99,
+    "imageUrl": "https://example.com/images/theory-basics.jpg"
+  },
+  {
+    "title": "Piano Technique Mastery",
+    "description": "Improve your piano technique with advanced exercises and drills.",
+    "category": "Technique",
+    "level": "Advanced",
+    "price": 64.99,
+    "imageUrl": "https://example.com/images/technique-mastery.jpg"
+  },
+  {
+    "title": "Intermediate Classical Repertoire",
+    "description": "Build your classical repertoire with intermediate-level pieces.",
+    "category": "Classical",
+    "level": "Intermediate",
+    "price": 54.99,
+    "imageUrl": "https://example.com/images/classical-intermediate.jpg"
+  },
+  {
+    "title": "Advanced Jazz Harmony",
+    "description": "Dive deep into advanced jazz harmony and complex chord voicings.",
+    "category": "Jazz",
+    "level": "Advanced",
+    "price": 74.99,
+    "imageUrl": "https://example.com/images/jazz-advanced.jpg"
+  },
+  {
+    "title": "Contemporary Pop Arrangements",
+    "description": "Learn to arrange and play contemporary pop songs on piano.",
+    "category": "Pop",
+    "level": "Intermediate",
+    "price": 49.99,
+    "imageUrl": "https://example.com/images/pop-contemporary.jpg"
+  },
+  {
+    "title": "Rock Ballads and Power Ballads",
+    "description": "Master the art of playing emotional rock ballads on piano.",
+    "category": "Rock",
+    "level": "Intermediate",
+    "price": 59.99,
+    "imageUrl": "https://example.com/images/rock-ballads.jpg"
+  },
+  {
+    "title": "Advanced Blues Techniques",
+    "description": "Take your blues playing to the next level with advanced techniques.",
+    "category": "Blues",
+    "level": "Advanced",
+    "price": 64.99,
+    "imageUrl": "https://example.com/images/blues-advanced.jpg"
+  }
+]
