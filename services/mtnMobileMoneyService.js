@@ -53,13 +53,6 @@ export class MTNMobileMoneyService {
       const transactionId = this.generateTransactionId();
       const currency = 'XAF'; // Central African CFA franc for Cameroon
 
-      console.log('MTN Payment Request (Mock):', {
-        amount,
-        phoneNumber,
-        externalId,
-        description,
-        transactionId
-      });
 
       return {
         success: true,
@@ -82,7 +75,6 @@ export class MTNMobileMoneyService {
   async getPaymentStatus(transactionId) {
     try {
       // For testing, return a mock successful status
-      console.log('MTN Payment Status Check (Mock):', transactionId);
       
       return {
         success: true,
