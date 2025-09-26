@@ -8,6 +8,7 @@ import subscriptionRoutes from "../routes/subscriptions.js";
 import progressRoutes from "../routes/progress.js";
 import reviewRoutes from "../routes/reviews.js";
 import changePasswordRoutes from "../routes/change_password.js";
+import emailRoutes from "../routes/emails.js";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 import { User, validateAuth } from "../models/user.js";
@@ -64,5 +65,6 @@ export default function (app) {
   app.use("/api/subscriptions", subscriptionRoutes);
   app.use("/api/progress", progressRoutes);
   app.use("/api/reviews", reviewRoutes);
+  app.use("/api/emails", emailRoutes);
   app.use("/uploads", express.static("uploads")); // Serve uploaded files
 }

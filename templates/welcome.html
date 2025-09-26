@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Piano Lessons</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        .container {
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+        .header {
+            text-align: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 10px 10px 0 0;
+            margin: -30px -30px 30px -30px;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 28px;
+        }
+        .content {
+            margin-bottom: 30px;
+        }
+        .button {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: bold;
+            margin: 20px 0;
+        }
+        .footer {
+            text-align: center;
+            color: #666;
+            font-size: 14px;
+            border-top: 1px solid #eee;
+            padding-top: 20px;
+            margin-top: 30px;
+        }
+        .highlight {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-left: 4px solid #667eea;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🎹 Welcome to Piano Lessons!</h1>
+        </div>
+        
+        <div class="content">
+            <h2>Hello {{name}}!</h2>
+            
+            <p>Welcome to our piano learning platform! We're excited to have you join our community of music enthusiasts.</p>
+            
+            <div class="highlight">
+                <strong>Your account is now active!</strong><br>
+                Email: {{email}}<br>
+                Member since: {{joinDate}}
+            </div>
+            
+            <h3>What's next?</h3>
+            <ul>
+                <li>🎵 Explore our beginner courses</li>
+                <li>🎼 Set up your practice schedule</li>
+                <li>👥 Connect with other learners</li>
+                <li>📱 Download our mobile app (coming soon)</li>
+            </ul>
+            
+            <p>Ready to start your musical journey?</p>
+            
+            <div style="text-align: center;">
+                <a href="{{dashboardUrl}}" class="button">Go to Dashboard</a>
+            </div>
+            
+            <p>If you have any questions, don't hesitate to reach out to our support team. We're here to help you succeed!</p>
+        </div>
+        
+        <div class="footer">
+            <p>Happy learning!<br>
+            The Piano Lessons Team</p>
+            <p><a href="{{unsubscribeUrl}}">Unsubscribe</a> | <a href="{{contactUrl}}">Contact Support</a></p>
+        </div>
+    </div>
+</body>
+</html>

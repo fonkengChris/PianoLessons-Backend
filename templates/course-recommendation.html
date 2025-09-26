@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Recommendation - Piano Lessons</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        .container {
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+        .header {
+            text-align: center;
+            background: linear-gradient(135deg, #a29bfe 0%, #6c5ce7 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 10px 10px 0 0;
+            margin: -30px -30px 30px -30px;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 28px;
+        }
+        .content {
+            margin-bottom: 30px;
+        }
+        .button {
+            display: inline-block;
+            background: linear-gradient(135deg, #a29bfe 0%, #6c5ce7 100%);
+            color: white;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: bold;
+            margin: 20px 0;
+        }
+        .footer {
+            text-align: center;
+            color: #666;
+            font-size: 14px;
+            border-top: 1px solid #eee;
+            padding-top: 20px;
+            margin-top: 30px;
+        }
+        .course-card {
+            border: 1px solid #e9ecef;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            background-color: #f8f9fa;
+        }
+        .course-title {
+            font-size: 20px;
+            font-weight: bold;
+            color: #6c5ce7;
+            margin-bottom: 10px;
+        }
+        .course-meta {
+            display: flex;
+            justify-content: space-between;
+            margin: 10px 0;
+            font-size: 14px;
+            color: #666;
+        }
+        .course-description {
+            margin: 15px 0;
+        }
+        .features {
+            background-color: #e8f5e8;
+            border: 1px solid #00b894;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+        }
+        .feature-item {
+            display: flex;
+            align-items: center;
+            margin: 8px 0;
+        }
+        .feature-icon {
+            margin-right: 10px;
+            font-size: 16px;
+        }
+        .recommendation-reason {
+            background-color: #fff3cd;
+            border: 1px solid #ffeaa7;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🎵 Perfect Course for You!</h1>
+        </div>
+        
+        <div class="content">
+            <h2>Hello {{name}}!</h2>
+            
+            <p>Based on your learning progress and interests, we've found the perfect course for you!</p>
+            
+            <div class="recommendation-reason">
+                <strong>💡 Why we recommend this:</strong><br>
+                {{recommendationReason}}
+            </div>
+            
+            <div class="course-card">
+                <div class="course-title">{{courseTitle}}</div>
+                <div class="course-meta">
+                    <span>📚 {{lessonCount}} lessons</span>
+                    <span>⏱️ {{duration}} hours</span>
+                    <span>⭐ {{rating}}/5 rating</span>
+                </div>
+                <div class="course-description">
+                    {{courseDescription}}
+                </div>
+                
+                <div class="features">
+                    <h4>What you'll learn:</h4>
+                    {{#each features}}
+                    <div class="feature-item">
+                        <span class="feature-icon">✓</span>
+                        <span>{{this}}</span>
+                    </div>
+                    {{/each}}
+                </div>
+                
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="{{courseUrl}}" class="button">Start This Course</a>
+                </div>
+            </div>
+            
+            <h3>Your Learning Journey</h3>
+            <p>You've completed <strong>{{completedCourses}}</strong> courses and watched <strong>{{totalWatchTime}}</strong> hours of content. This course will help you reach the next level!</p>
+            
+            <div style="text-align: center;">
+                <a href="{{allCoursesUrl}}" class="button">Browse All Courses</a>
+            </div>
+            
+            <p>Happy learning! We're excited to see your progress with this new course.</p>
+        </div>
+        
+        <div class="footer">
+            <p>Keep up the great work!<br>
+            The Piano Lessons Team</p>
+            <p><a href="{{dashboardUrl}}">View Dashboard</a> | <a href="{{unsubscribeUrl}}">Unsubscribe</a></p>
+        </div>
+    </div>
+</body>
+</html>

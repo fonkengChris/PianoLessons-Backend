@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subscription Expired - Piano Lessons</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        .container {
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+        .header {
+            text-align: center;
+            background: linear-gradient(135deg, #fdcb6e 0%, #e17055 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 10px 10px 0 0;
+            margin: -30px -30px 30px -30px;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 28px;
+        }
+        .content {
+            margin-bottom: 30px;
+        }
+        .button {
+            display: inline-block;
+            background: linear-gradient(135deg, #fdcb6e 0%, #e17055 100%);
+            color: white;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: bold;
+            margin: 20px 0;
+        }
+        .footer {
+            text-align: center;
+            color: #666;
+            font-size: 14px;
+            border-top: 1px solid #eee;
+            padding-top: 20px;
+            margin-top: 30px;
+        }
+        .notice {
+            background-color: #fff3cd;
+            border: 1px solid #ffeaa7;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+        .benefits {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+        .benefit-item {
+            display: flex;
+            align-items: center;
+            margin: 10px 0;
+        }
+        .benefit-icon {
+            margin-right: 10px;
+            font-size: 18px;
+        }
+        .pricing {
+            background-color: #e8f5e8;
+            border: 1px solid #00b894;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            text-align: center;
+        }
+        .price {
+            font-size: 32px;
+            font-weight: bold;
+            color: #00b894;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>⏰ Subscription Expired</h1>
+        </div>
+        
+        <div class="content">
+            <h2>Hello {{name}}!</h2>
+            
+            <p>Your premium subscription to Piano Lessons has expired on <strong>{{expiryDate}}</strong>.</p>
+            
+            <div class="notice">
+                <strong>📢 Important:</strong> You still have access to free content, but premium features are now limited.
+            </div>
+            
+            <h3>What You're Missing</h3>
+            <div class="benefits">
+                <div class="benefit-item">
+                    <span class="benefit-icon">🎵</span>
+                    <span>Access to all premium courses and lessons</span>
+                </div>
+                <div class="benefit-item">
+                    <span class="benefit-icon">📱</span>
+                    <span>Mobile app access and offline downloads</span>
+                </div>
+                <div class="benefit-item">
+                    <span class="benefit-icon">👨‍🏫</span>
+                    <span>1-on-1 instructor support and feedback</span>
+                </div>
+                <div class="benefit-item">
+                    <span class="benefit-icon">🏆</span>
+                    <span>Progress tracking and achievement badges</span>
+                </div>
+                <div class="benefit-item">
+                    <span class="benefit-icon">🎼</span>
+                    <span>Sheet music library and practice tools</span>
+                </div>
+            </div>
+            
+            <div class="pricing">
+                <h3>Special Renewal Offer</h3>
+                <div class="price">${{discountPrice}}/month</div>
+                <p><del>${{originalPrice}}/month</del> - Save {{discountPercent}}%!</p>
+                <p><small>Limited time offer - expires in 7 days</small></p>
+            </div>
+            
+            <div style="text-align: center;">
+                <a href="{{renewUrl}}" class="button">Renew Subscription</a>
+            </div>
+            
+            <p>Don't let your progress slow down! Renew now to continue your piano learning journey with full access to all our premium features.</p>
+            
+            <p>Questions about your subscription? Our support team is here to help!</p>
+        </div>
+        
+        <div class="footer">
+            <p>Thank you for being part of our community!<br>
+            The Piano Lessons Team</p>
+            <p><a href="{{contactUrl}}">Contact Support</a> | <a href="{{unsubscribeUrl}}">Unsubscribe</a></p>
+        </div>
+    </div>
+</body>
+</html>

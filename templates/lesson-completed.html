@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson Completed - Piano Lessons</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        .container {
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+        .header {
+            text-align: center;
+            background: linear-gradient(135deg, #00b894 0%, #00a085 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 10px 10px 0 0;
+            margin: -30px -30px 30px -30px;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 28px;
+        }
+        .content {
+            margin-bottom: 30px;
+        }
+        .button {
+            display: inline-block;
+            background: linear-gradient(135deg, #00b894 0%, #00a085 100%);
+            color: white;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: bold;
+            margin: 20px 0;
+        }
+        .footer {
+            text-align: center;
+            color: #666;
+            font-size: 14px;
+            border-top: 1px solid #eee;
+            padding-top: 20px;
+            margin-top: 30px;
+        }
+        .achievement {
+            background-color: #d1f2eb;
+            border: 1px solid #00b894;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            text-align: center;
+        }
+        .progress-bar {
+            background-color: #e9ecef;
+            border-radius: 10px;
+            height: 20px;
+            margin: 15px 0;
+            overflow: hidden;
+        }
+        .progress-fill {
+            background: linear-gradient(135deg, #00b894 0%, #00a085 100%);
+            height: 100%;
+            border-radius: 10px;
+            transition: width 0.3s ease;
+        }
+        .stats {
+            display: flex;
+            justify-content: space-around;
+            margin: 20px 0;
+        }
+        .stat {
+            text-align: center;
+        }
+        .stat-number {
+            font-size: 24px;
+            font-weight: bold;
+            color: #00b894;
+        }
+        .stat-label {
+            font-size: 14px;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🎉 Congratulations!</h1>
+        </div>
+        
+        <div class="content">
+            <h2>Great job, {{name}}!</h2>
+            
+            <p>You've successfully completed <strong>"{{lessonTitle}}"</strong> from the <strong>{{courseTitle}}</strong> course!</p>
+            
+            <div class="achievement">
+                <h3>🏆 Achievement Unlocked!</h3>
+                <p>You're making excellent progress on your piano journey!</p>
+            </div>
+            
+            <h3>Your Progress</h3>
+            <div class="progress-bar">
+                <div class="progress-fill" style="width: {{courseProgress}}%"></div>
+            </div>
+            <p style="text-align: center; margin: 5px 0;">{{courseProgress}}% Complete</p>
+            
+            <div class="stats">
+                <div class="stat">
+                    <div class="stat-number">{{lessonsCompleted}}</div>
+                    <div class="stat-label">Lessons Completed</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">{{totalWatchTime}}</div>
+                    <div class="stat-label">Minutes Watched</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">{{streak}}</div>
+                    <div class="stat-label">Day Streak</div>
+                </div>
+            </div>
+            
+            <h3>What's Next?</h3>
+            <p>Ready to continue your learning journey? Here are some suggestions:</p>
+            <ul>
+                <li>🎵 Practice the techniques you just learned</li>
+                <li>📚 Move on to the next lesson in this course</li>
+                <li>🎼 Explore other courses in your skill level</li>
+                <li>⭐ Review and practice previous lessons</li>
+            </ul>
+            
+            <div style="text-align: center;">
+                <a href="{{nextLessonUrl}}" class="button">Continue Learning</a>
+            </div>
+            
+            <p>Keep up the great work! Every lesson brings you closer to mastering the piano.</p>
+        </div>
+        
+        <div class="footer">
+            <p>Happy learning!<br>
+            The Piano Lessons Team</p>
+            <p><a href="{{dashboardUrl}}">View Dashboard</a> | <a href="{{unsubscribeUrl}}">Unsubscribe</a></p>
+        </div>
+    </div>
+</body>
+</html>

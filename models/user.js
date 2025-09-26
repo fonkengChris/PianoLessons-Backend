@@ -28,6 +28,16 @@ const userSchema = new mongoose.Schema({
       watchTime: { type: Number, default: 0 }, // in seconds
     },
   ],
+  emailPreferences: {
+    welcome: { type: Boolean, default: true },
+    lessons: { type: Boolean, default: true },
+    promotions: { type: Boolean, default: true },
+    updates: { type: Boolean, default: true },
+    marketing: { type: Boolean, default: false },
+  },
+  lastEmailSent: { type: Date },
+  emailVerified: { type: Boolean, default: false },
+  emailVerificationToken: { type: String },
   createdAt: { type: Date, default: Date.now },
 });
 

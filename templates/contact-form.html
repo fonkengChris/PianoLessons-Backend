@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Form Submission - Piano Lessons</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        .container {
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+        .header {
+            text-align: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 10px 10px 0 0;
+            margin: -30px -30px 30px -30px;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 28px;
+        }
+        .content {
+            margin-bottom: 30px;
+        }
+        .message-box {
+            background-color: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        .user-info {
+            background-color: #e8f5e8;
+            border: 1px solid #00b894;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+        }
+        .footer {
+            text-align: center;
+            color: #666;
+            font-size: 14px;
+            border-top: 1px solid #eee;
+            padding-top: 20px;
+            margin-top: 30px;
+        }
+        .priority {
+            display: inline-block;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+        .priority.high {
+            background-color: #ff6b6b;
+            color: white;
+        }
+        .priority.medium {
+            background-color: #fdcb6e;
+            color: #333;
+        }
+        .priority.low {
+            background-color: #00b894;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>📧 New Contact Form Submission</h1>
+        </div>
+        
+        <div class="content">
+            <h2>Contact Form Details</h2>
+            
+            <div class="user-info">
+                <h3>User Information</h3>
+                <p><strong>Name:</strong> {{name}}</p>
+                <p><strong>Email:</strong> {{email}}</p>
+                <p><strong>User ID:</strong> {{userId}}</p>
+                <p><strong>Submitted:</strong> {{submittedAt}}</p>
+            </div>
+            
+            <div class="message-box">
+                <h3>Message Details</h3>
+                <p><strong>Subject:</strong> {{subject}}</p>
+                <p><strong>Priority:</strong> 
+                    <span class="priority {{priority}}">{{priority}}</span>
+                </p>
+                <p><strong>Message:</strong></p>
+                <div style="background-color: white; padding: 15px; border-radius: 5px; border-left: 4px solid #667eea;">
+                    {{message}}
+                </div>
+            </div>
+            
+            <h3>Next Steps</h3>
+            <ul>
+                <li>📧 Reply to the user at: <strong>{{email}}</strong></li>
+                <li>⏰ Respond within 24 hours as promised</li>
+                <li>📝 Log the interaction in your support system</li>
+                <li>🔄 Follow up if needed</li>
+            </ul>
+            
+            <div style="text-align: center; margin: 30px 0;">
+                <a href="mailto:{{email}}?subject=Re: {{subject}}" 
+                   style="display: inline-block; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 12px 30px; text-decoration: none; border-radius: 25px; font-weight: bold;">
+                    Reply to User
+                </a>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>This email was automatically generated from the Piano Lessons contact form.<br>
+            User submitted at {{submittedAt}}</p>
+            <p><a href="{{dashboardUrl}}">Admin Dashboard</a> | <a href="{{contactUrl}}">Contact Page</a></p>
+        </div>
+    </div>
+</body>
+</html>
+
