@@ -10,48 +10,56 @@ const categories = [
   {
     name: "Classical",
     description: "Classical piano music and techniques",
+    slug: "classical",
     sortOrder: 1,
     isActive: true
   },
   {
     name: "Jazz",
     description: "Jazz piano styles and improvisation",
+    slug: "jazz",
     sortOrder: 2,
     isActive: true
   },
   {
     name: "Pop",
     description: "Popular music and contemporary piano",
+    slug: "pop",
     sortOrder: 3,
     isActive: true
   },
   {
     name: "Rock",
     description: "Rock piano and keyboard techniques",
+    slug: "rock",
     sortOrder: 4,
     isActive: true
   },
   {
     name: "Blues",
     description: "Blues piano styles and techniques",
+    slug: "blues",
     sortOrder: 5,
     isActive: true
   },
   {
     name: "Gospel",
     description: "Gospel piano and spiritual music",
+    slug: "gospel",
     sortOrder: 6,
     isActive: true
   },
   {
     name: "Country",
     description: "Country piano and folk music",
+    slug: "country",
     sortOrder: 7,
     isActive: true
   },
   {
     name: "R&B",
     description: "Rhythm and Blues piano techniques",
+    slug: "rnb",
     sortOrder: 8,
     isActive: true
   }

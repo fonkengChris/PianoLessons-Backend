@@ -20,7 +20,8 @@ const categorySchema = new mongoose.Schema({
     unique: true,
     lowercase: true,
     trim: true,
-    index: true
+    index: true,
+    sparse: true
   },
   isActive: {
     type: Boolean,
