@@ -5,6 +5,7 @@ import protectedRoutes from "../routes/protected.js";
 import courseRoutes from "../routes/courses.js";
 import lessonRoutes from "../routes/lessons.js";
 import subscriptionRoutes from "../routes/subscriptions.js";
+import paymentRoutes from "../routes/payments.js";
 import progressRoutes from "../routes/progress.js";
 import reviewRoutes from "../routes/reviews.js";
 import changePasswordRoutes from "../routes/change_password.js";
@@ -63,6 +64,7 @@ export default function (app) {
   app.use("/api/courses", courseRoutes);
   app.use("/api/lessons", lessonRoutes);
   app.use("/api/subscriptions", subscriptionRoutes);
+  app.use("/api/payments", paymentRoutes);
   app.use("/api/progress", progressRoutes);
   app.use("/api/reviews", reviewRoutes);
   app.use("/api/emails", emailRoutes);
