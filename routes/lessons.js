@@ -52,7 +52,8 @@ router.get("/course/:courseId", auth, async (req, res) => {
     //   return res.status(403).json({ message: "Active subscription required" });
     // }
 
-    const lessons = await Lesson.find({ courseId: courseObjectId }).sort(
+    // Try string comparison instead of ObjectId comparison
+    const lessons = await Lesson.find({ courseId: req.params.courseId }).sort(
       "order"
     );
     
