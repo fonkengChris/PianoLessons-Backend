@@ -22,22 +22,33 @@ router.get("/", [auth, admin], async (req, res) => {
 
 // Get lessons for a course (temporarily bypassed subscription requirement)
 router.get("/course/:courseId", auth, async (req, res) => {
-  // TODO: Temporarily bypassed subscription check for development
-  // Check if user has active subscription
-  // const subscription = await Subscription.findOne({
-  //   userId: req.user.id,
-  //   status: "active",
-  //   endDate: { $gt: new Date() },
-  // });
+  try {
+    console.log("Lessons API called with courseId:", req.params.courseId);
+    
+    // TODO: Temporarily bypassed subscription check for development
+    // Check if user has active subscription
+    // const subscription = await Subscription.findOne({
+    //   userId: req.user.id,
+    //   status: "active",
+    //   endDate: { $gt: new Date() },
+    // });
 
-  // if (!subscription) {
-  //   return res.status(403).json({ message: "Active subscription required" });
-  // }
+    // if (!subscription) {
+    //   return res.status(403).json({ message: "Active subscription required" });
+    // }
 
-  const lessons = await Lesson.find({ courseId: req.params.courseId }).sort(
-    "order"
-  );
-  res.json(lessons);
+    const lessons = await Lesson.find({ courseId: req.params.courseId }).sort(
+      "order"
+    );
+    
+    console.log("Found lessons:", lessons.length);
+    console.log("Lessons data:", lessons);
+    
+    res.json(lessons);
+  } catch (error) {
+    console.error("Error in lessons route:", error);
+    res.status(500).json({ error: "Internal server error" });
+  }
 });
 
 // Get single lesson (temporarily bypassed subscription requirement)
