@@ -52,10 +52,12 @@ router.get("/course/:courseId", auth, async (req, res) => {
     //   return res.status(403).json({ message: "Active subscription required" });
     // }
 
-    // Try string comparison instead of ObjectId comparison
-    const lessons = await Lesson.find({ courseId: req.params.courseId }).sort(
-      "order"
-    );
+    // Try using $toString to convert ObjectId to string for comparison
+    const lessons = await Lesson.find({ 
+      $expr: { 
+        $eq: [{ $toString: "$courseId" }, req.params.courseId] 
+      } 
+    }).sort("order");
     
     console.log("Found lessons:", lessons.length);
     console.log("Lessons data:", lessons);
