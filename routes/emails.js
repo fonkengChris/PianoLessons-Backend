@@ -386,52 +386,56 @@ router.post('/contact', [validate(contactFormSchema)], async (req, res) => {
       priority = 'medium';
     }
     
-    // Send confirmation email to user
-    const confirmationData = {
-      name,
-      email,
-      subject,
-      submittedAt,
-      referenceId,
-      dashboardUrl: `${process.env.FRONTEND_URL}/dashboard`,
-      coursesUrl: `${process.env.FRONTEND_URL}/courses`,
-      faqUrl: `${process.env.FRONTEND_URL}/contact#faq`,
-      unsubscribeUrl: `${process.env.FRONTEND_URL}/unsubscribe?token=${userId || 'anonymous'}`,
-    };
-    
-    const confirmationJob = await emailQueue.addCustomEmail(
-      email,
-      'Message Received - We\'ll Get Back to You Soon!',
-      'contact-confirmation',
-      confirmationData
-    );
-    
-    // Send notification email to admin/support
-    const adminData = {
-      name,
-      email,
-      subject,
-      message,
-      userId: userId || 'anonymous',
-      submittedAt,
-      referenceId,
-      priority,
-      dashboardUrl: `${process.env.FRONTEND_URL}/admin`,
-      contactUrl: `${process.env.FRONTEND_URL}/contact`,
-    };
-    
-    const adminJob = await emailQueue.addCustomEmail(
-      process.env.SUPPORT_EMAIL || 'admin@pianolessons.com',
-      `[${priority.toUpperCase()}] New Contact Form: ${subject}`,
-      'contact-form',
-      adminData
-    );
+    // Send emails directly without queue to avoid memory issues
+    try {
+      // Send confirmation email to user
+      const confirmationData = {
+        name,
+        email,
+        subject,
+        submittedAt,
+        referenceId,
+        dashboardUrl: `${process.env.FRONTEND_URL}/dashboard`,
+        coursesUrl: `${process.env.FRONTEND_URL}/courses`,
+        faqUrl: `${process.env.FRONTEND_URL}/contact#faq`,
+        unsubscribeUrl: `${process.env.FRONTEND_URL}/unsubscribe?token=${userId || 'anonymous'}`,
+      };
+      
+      await emailService.sendCustomEmail(
+        email,
+        'Message Received - We\'ll Get Back to You Soon!',
+        'contact-confirmation',
+        confirmationData
+      );
+      
+      // Send notification email to admin/support
+      const adminData = {
+        name,
+        email,
+        subject,
+        message,
+        userId: userId || 'anonymous',
+        submittedAt,
+        referenceId,
+        priority,
+        dashboardUrl: `${process.env.FRONTEND_URL}/admin`,
+        contactUrl: `${process.env.FRONTEND_URL}/contact`,
+      };
+      
+      await emailService.sendCustomEmail(
+        process.env.SUPPORT_EMAIL || 'admin@pianolessons.com',
+        `[${priority.toUpperCase()}] New Contact Form: ${subject}`,
+        'contact-form',
+        adminData
+      );
+    } catch (emailError) {
+      console.error('Email sending failed:', emailError);
+      // Continue with response even if email fails
+    }
     
     res.json({
       message: 'Contact form submitted successfully',
       referenceId,
-      confirmationJobId: confirmationJob.id,
-      adminJobId: adminJob.id,
     });
   } catch (error) {
     console.error('Error processing contact form:', error);
