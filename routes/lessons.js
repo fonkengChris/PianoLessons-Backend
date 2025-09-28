@@ -1,4 +1,5 @@
 import express from "express";
+import mongoose from "mongoose";
 import auth from "../middleware/auth.js";
 import admin from "../middleware/admin.js";
 import validate from "../middleware/validate.js";
@@ -33,7 +34,7 @@ router.get("/course/:courseId", auth, async (req, res) => {
   //   return res.status(403).json({ message: "Active subscription required" });
   // }
 
-  const lessons = await Lesson.find({ courseId: req.params.courseId }).sort(
+  const lessons = await Lesson.find({ courseId: new mongoose.Types.ObjectId(req.params.courseId) }).sort(
     "order"
   );
   res.json(lessons);
