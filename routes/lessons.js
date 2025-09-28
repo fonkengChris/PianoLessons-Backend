@@ -24,6 +24,21 @@ router.get("/", [auth, admin], async (req, res) => {
 router.get("/course/:courseId", auth, async (req, res) => {
   try {
     console.log("Lessons API called with courseId:", req.params.courseId);
+    console.log("courseId type:", typeof req.params.courseId);
+    
+    // Convert to ObjectId
+    const courseObjectId = new mongoose.Types.ObjectId(req.params.courseId);
+    console.log("Converted ObjectId:", courseObjectId);
+    console.log("ObjectId type:", typeof courseObjectId);
+    
+    // Check all lessons first
+    const allLessons = await Lesson.find({});
+    console.log("Total lessons in database:", allLessons.length);
+    if (allLessons.length > 0) {
+      console.log("First lesson courseId:", allLessons[0].courseId);
+      console.log("First lesson courseId type:", typeof allLessons[0].courseId);
+      console.log("First lesson courseId toString:", allLessons[0].courseId.toString());
+    }
     
     // TODO: Temporarily bypassed subscription check for development
     // Check if user has active subscription
@@ -37,7 +52,7 @@ router.get("/course/:courseId", auth, async (req, res) => {
     //   return res.status(403).json({ message: "Active subscription required" });
     // }
 
-    const lessons = await Lesson.find({ courseId: new mongoose.Types.ObjectId(req.params.courseId) }).sort(
+    const lessons = await Lesson.find({ courseId: courseObjectId }).sort(
       "order"
     );
     
