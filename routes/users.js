@@ -58,7 +58,14 @@ router.post("/", async (req, res) => {
 
     res.status(201).json({
       accessToken,
-      user: _.pick(user, ["_id", "name", "email", "role", "isAdmin"]),
+      user: {
+        _id: user._id,
+        name: user.name,
+        email: user.email,
+        role: user.role,
+        isAdmin: user.isAdmin,
+        subscriptionActive: user.subscriptionActive,
+      },
     });
   } catch (error) {
     console.error("Registration error:", error);
