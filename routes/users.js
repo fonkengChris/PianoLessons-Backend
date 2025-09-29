@@ -5,6 +5,7 @@ import _ from "lodash";
 import { User, validatePost, validatePut, ROLES } from "../models/user.js";
 import auth from "../middleware/auth.js";
 import admin from "../middleware/admin.js";
+import emailService from "../services/emailService.js";
 
 const router = express.Router();
 
@@ -44,6 +45,16 @@ router.post("/", async (req, res) => {
     await user.save();
 
     const accessToken = user.generateAccessToken();
+
+    // Send welcome email to new user
+    try {
+      console.log('Sending welcome email to new user:', user.email);
+      await emailService.sendWelcomeEmail(user._id);
+      console.log('Welcome email sent successfully');
+    } catch (emailError) {
+      console.error('Failed to send welcome email:', emailError);
+      // Don't fail registration if email fails
+    }
 
     res.status(201).json({
       accessToken,
