@@ -388,6 +388,8 @@ router.post('/contact', [validate(contactFormSchema)], async (req, res) => {
     
     // Send emails directly without queue to avoid memory issues
     try {
+      console.log('Attempting to send emails...');
+      
       // Send confirmation email to user
       const confirmationData = {
         name,
@@ -401,12 +403,14 @@ router.post('/contact', [validate(contactFormSchema)], async (req, res) => {
         unsubscribeUrl: `${process.env.FRONTEND_URL}/unsubscribe?token=${userId || 'anonymous'}`,
       };
       
-      await emailService.sendCustomEmail(
+      console.log('Sending confirmation email to:', email);
+      const confirmationResult = await emailService.sendCustomEmail(
         email,
         'Message Received - We\'ll Get Back to You Soon!',
         'contact-confirmation',
         confirmationData
       );
+      console.log('Confirmation email sent:', confirmationResult.messageId);
       
       // Send notification email to admin/support
       const adminData = {
@@ -422,12 +426,14 @@ router.post('/contact', [validate(contactFormSchema)], async (req, res) => {
         contactUrl: `${process.env.FRONTEND_URL}/contact`,
       };
       
-      await emailService.sendCustomEmail(
+      console.log('Sending admin email to:', process.env.SUPPORT_EMAIL || 'admin@pianolessons.com');
+      const adminResult = await emailService.sendCustomEmail(
         process.env.SUPPORT_EMAIL || 'admin@pianolessons.com',
         `[${priority.toUpperCase()}] New Contact Form: ${subject}`,
         'contact-form',
         adminData
       );
+      console.log('Admin email sent:', adminResult.messageId);
     } catch (emailError) {
       console.error('Email sending failed:', emailError);
       // Continue with response even if email fails
