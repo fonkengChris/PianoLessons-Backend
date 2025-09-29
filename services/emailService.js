@@ -102,7 +102,7 @@ class EmailService {
   async sendEmail(to, subject, html, text = null) {
     try {
       const mailOptions = {
-        from: process.env.EMAIL_FROM || 'Piano Lessons <noreply@pianolessons.com>',
+        from: process.env.SMTP_USER || process.env.EMAIL_FROM || 'Piano Lessons <noreply@pianolessons.com>',
         to,
         subject,
         html,
